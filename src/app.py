@@ -6,7 +6,7 @@ app = Flask(__name__)
 # default route yang akan dijalankan
 @app.route('/')
 def home() :
-    return render_template('index.html', language = 'indo')
+    return render_template('index.html', language = 'indo', method = 'bm')
 
 # akan dijalankan setelah submit form
 @app.route('/', methods=['POST'])

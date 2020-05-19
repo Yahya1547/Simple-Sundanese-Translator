@@ -71,11 +71,14 @@ def translateKata(kosakata, language, method) :
     return (0, kosakata)
 
 
-
-
 def translate(teks, language, method) : 
+    subjek = ['anjeun', 'anjeunna', 'maneh', 'manehna', 'urang', 'abdi', 'aing', 'ieu']
     kata = teks.split(' ')
     kata_tanpa_simbol, simbol = removeSymbol(kata)
+
+    # belum ada kata 'teh' yang dipakai pada terjemahan ke bahasa sunda
+    teh = False
+    
 
     kata_terjemahan = []
     i = 0
@@ -92,13 +95,24 @@ def translate(teks, language, method) :
                     kosakata_terjemahan = kosakata_terjemahan + simbol[j]
                 break
         
+        if terjemahan[0] == 0 :
+            if language == 'sunda' and kosakata_terjemahan == 'teh':
+                if kata[i-1] in subjek :
+                    i += 1
+                    continue
+
         kosakata_terjemahan = kosakata_terjemahan.split(' ')
         for k in range(len(kosakata_terjemahan)) :
                 kata_terjemahan.append(kosakata_terjemahan[k])
+        
+        if language == 'indo' :
+            if kata_terjemahan[-1] in subjek and not teh :
+                kata_terjemahan.append('teh')
+                teh = True
         
         i = j + 1
 
     return concat(kata_terjemahan, 0, len(kata_terjemahan)-1)
     
 
-# print(translate("maneh kaditu? jauh? atawa kaos sangsang?", 'sunda', 'regex'))
+# print(translate("nama adik kamu siapa? saya mau tau", 'indo', 'regex'))

@@ -13,19 +13,31 @@
         <fieldset>
             <legend>Algoritma : </legend>
             <div class="form-check">
-                <input type="radio" class="form-check-input" name = "method" id="algorithm1" value="bm" checked>
+                {% if method == 'bm' %}
+                    <input type="radio" class="form-check-input" name = "method" id="algorithm1" value="bm" checked>
+                {% else %}
+                    <input type="radio" class="form-check-input" name = "method" id="algorithm1" value="bm">
+                {% endif %}
                 <label class = "form-check-label" for="algorithm1">
                     Boyer-Moore 
                 </label>
             </div>
             <div class="form-check">
+                {% if method == 'kmp' %}
+                <input type="radio" class="form-check-input" name = "method" id="algorithm2" value="kmp" checked>
+                {% else %}
                 <input type="radio" class="form-check-input" name = "method" id="algorithm2" value="kmp">
+                {% endif %}
                 <label class = "form-check-label" for="algorithm2">
                     KMP
                 </label>
             </div>
             <div class="form-check">
-                <input type="radio" class="form-check-input" name = "method" id="algorithm3" value="regex">
+                {% if method == 'regex' %}
+                    <input type="radio" class="form-check-input" name = "method" id="algorithm3" value="regex" checked>
+                {% else %}
+                    <input type="radio" class="form-check-input" name = "method" id="algorithm3" value="regex">
+                {% endif %}
                 <label class = "form-check-label" for="algorithm3">
                     Regex
                 </label>
@@ -66,13 +78,29 @@
                 <input type="text" class="form-control" name = "kata" required>
             {% endif %}
         </div>
-        <input type="submit" value="Submit">
-
-        
+        <input type="submit" value="Translate" >
     </form>
 
-    {% if terjemahan %}
-        <p>{{terjemahan}}</p>
-    {% endif %}
+    <div class="card">
+        <div class="card-body">
+            {% if language == 'sunda' %}
+            <h3 class="card-title border-bottom">Sunda - Indonesia</h3>
+            {% elif language == 'indo' %}
+            <h3 class="card-title border-bottom">Indonesia - Sunda</h3>
+            {% else %}
+            <h3 class="card-title border-bottom">Translate</h3>
+            {% endif %}
+
+            {% if terjemahan %}
+            <p class="card-text" style="font-size : 18px;">{{terjemahan}}</p>
+            {% else %}
+            <p class="card-text">
+                
+            </p>
+            {% endif %}
+        </div>
+    </div>
 
 {% endblock content %}
+
+    

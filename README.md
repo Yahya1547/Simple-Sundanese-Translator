@@ -1,62 +1,43 @@
 # Simple Sundanese Translator
 Simple Sundanese to Bahasa Indonesia translator using Pattern Matching
 
-## Latar Belakang
-Pada suatu hari, ada mahasiswa bernama Riyugan yang baru pindah ke Bandung. Pada awalnya dia mengalami kesulitan untuk bersosialisai dengan lingkungan sekitar karena orang-orang di lingkungannya yang baru hanya berbicara dalam bahasa Sunda. Beruntungnya Riyugan punya teman dari kampung halamannya, yaitu Anda, untuk diminta membuat penerjemah sederhana dari Bahasa Sunda ke Bahasa Indonesia begitu pula sebaliknya untuk memudahkan dirinya bersosialisasi dengan lingkungan barunya di Bandung.
+### Prerequisites
 
-## Spesifikasi
-Buatlah dalam bahasa pemrograman Python, program penerjemah sederhana yang memanfaatkan algoritma String Matching (Knuth-Morris-Pratt(KMP), Boyer-Moore(BM), dan Regex), dengan spesifikasi sebagai berikut.
-1. Program mampu membaca kata atau kalimat yang akan diterjemahkan.
-2. Program akan membaca file eksternal yang berisi vocabulary Bahasa Sunda - Bahasa Indonesia (file sudah disiapkan dalam repository).
-3. Program akan melakukan penerjemahan secara perkata (untuk contoh akan ditampilkan di bawah).
-4. Program dapat memilih mau "Bahasa Sunda ke Bahasa Indonesia" atau "Bahasa Indonesia ke Bahasa Sunda".
-5. Pada saat penerjemahan "Bahasa Sunda ke Bahasa Indonesia", program mampu mengenali kata yang tidak memiliki arti (stopwords), seperti "teh" sehingga dapat diabaikan saat penerjemahan.
-6. Pada saat penerjemahan "Bahasa Indonesia ke Bahasa Sunda", program mampu menambahkan kata untuk penekanan kalimat, seperti "teh".
-7. Program dapat menampilkan hasil terjemahan.
-8. Program dibuat secara individu.
-9. Peserta akan mendapatkan nilai bonus jika mengimplementasikan dalam web (untuk bahasanya dibebaskan).
-10. Dilarang meng-copy source code program yang sudah jadi, untuk source code algoritma string matching dipersilahkan menggunakan source code dari tugas yang sudah pernah dibuat (Tugas Kecil 4).
-11. Batas pengerjaannya adalah 6 Juni 2020.
+What things you need to install the software and how to install them
 
-## Contoh Kasus Uji
+* Python 3
+
+* Flask
 ```
-Sunda - Indonesia
-Sunda : nami abdi Riyugan
-Indonesia : nama saya Riyugan
+pip3 install flask
 ```
+or
 
 ```
-Sunda - Indonesia
-Sunda : abdi teh sanes jalma Bandung
-Indonesia : saya bukan orang Bandung
+pip install flask
 ```
+* Web Browser
+
+### Running The Web
+
+First, you need to go to the directory "src" and then run the file "app.py" with this command :
+
+Make sure your python command version in python 3
 
 ```
-Sunda - Indonesia
-Sunda : anjeun sumping ti mana?
-Indonesia : kamu tiba dari mana?
+python flaskapp.py
 ```
+or
+```
+python3 flaskapp.py
+```
+And then after it successfully compiled. You can open the web browser and then enter the site that is given after the server is ready. It is usually "http://127.0.0.1:5000/" or you can replace it with "localhost:5000". The port should be the same.
 
-```
-Indonesia - Sunda
-Indonesia : nama saya Riyugan
-Sunda : nami abdi Riyugan
-```
+### Demo Video
 
-```
-Indonesia - Sunda
-Indonesia : nama adik kamu siapa?
-Sunda : nami rai anjeun teh saha?
-```
+This is the link for demo video in YouTube :
 
-```
-Indonesia - Sunda
-Indonesia : saya tidak bisa bahasa Sunda
-Sunda : abdi henteu tiasa bahasa Sunda
-```
 
-## Pengumpulan
-1. Lakukan merge request dari hasil fork kalian ke repository ini
-2. Untuk demonya, silahkan membuat video demo penggunaan programnya, diupload ke YouTube dan sertakan linknya pada Readme.
 
-### **_(Ubah file README ini pada repository hasil fork kalian)_**
+
+
