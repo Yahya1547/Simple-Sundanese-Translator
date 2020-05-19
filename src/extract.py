@@ -1,5 +1,5 @@
 def extractIndoToSunda() :
-    kamus = open("../data/indoToSunda.txt", "r")
+    kamus = open("../data/indonesia.txt", "r")
     kata = kamus.readlines()
 
     kamusIndoToSunda = []
@@ -14,7 +14,7 @@ def extractIndoToSunda() :
     return kamusIndoToSunda
 
 def extractSundaToIndo() :
-    kamus = open("../data/sundaToIndo.txt", "r")
+    kamus = open("../data/sunda.txt", "r")
     kata = kamus.readlines()
 
     kamusSundaToIndo = []

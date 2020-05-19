@@ -6,7 +6,7 @@ app = Flask(__name__)
 # default route yang akan dijalankan
 @app.route('/')
 def home() :
-    return render_template('index.html')
+    return render_template('index.html', language = 'indo')
 
 # akan dijalankan setelah submit form
 @app.route('/', methods=['POST'])
@@ -18,11 +18,11 @@ def upload_file():
         language = request.form['language']
 
         terjemahan = translate(kata, language, method)
-        
+
         # melakukan ekstraksi pada setiap file yang telah diinput
         # file harus berada pada folder "test"
         
-        return render_template('index.html', terjemahan = terjemahan)
+        return render_template('index.html', terjemahan = terjemahan, language = language, kata = kata, method = method)
 
 # halaman tentang website yang dibuat
 @app.route('/about')

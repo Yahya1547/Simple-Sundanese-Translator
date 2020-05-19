@@ -101,4 +101,4 @@ def translate(teks, language, method) :
     return concat(kata_terjemahan, 0, len(kata_terjemahan)-1)
     
 
-print(translate("maneh kaditu? jauh? atawa kaos sangsang?", 'sunda', 'regex'))
+# print(translate("maneh kaditu? jauh? atawa kaos sangsang?", 'sunda', 'regex'))

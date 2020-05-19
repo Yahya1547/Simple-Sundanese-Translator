@@ -10,28 +10,6 @@
 
 {% block content %}
     <form action="/" method = "POST" enctype="multipart/form-data">
-
-        <legend>Bahasa : </legend>
-            <div class="form-check">
-                <input type="radio" class="form-check-input" name = "language" id="algorithm1" value="indo" checked>
-                <label class = "form-check-label" for="algorithm1">
-                    Indonesia - Sunda
-                </label>
-            </div>
-            <div class="form-check">
-                <input type="radio" class="form-check-input" name = "language" id="algorithm2" value="sunda">
-                <label class = "form-check-label" for="algorithm2">
-                    Sunda - Indonesia
-                </label>
-            </div>
-        
-        <div class="form-group">
-            <label>
-                Kata : 
-            </label>
-            <input type="text" class="form-control" name = "keyword" required>
-        </div>
-
         <fieldset>
             <legend>Algoritma : </legend>
             <div class="form-check">
@@ -53,12 +31,48 @@
                 </label>
             </div>
             <br>
-            <input type="submit" value="Submit">
+            
         </fieldset>
+
+        <legend>Bahasa : </legend>
+            <div class="form-check">
+                {% if language == 'indo' %}
+                    <input type="radio" class="form-check-input" name = "language" id="algorithm1" value="indo" checked>
+                {% else %}
+                    <input type="radio" class="form-check-input" name = "language" id="algorithm1" value="indo">
+                {% endif %}
+                <label class = "form-check-label" for="algorithm1">
+                    Indonesia - Sunda
+                </label>
+            </div>
+            <div class="form-check">
+                {% if language == 'sunda' %}
+                    <input type="radio" class="form-check-input" name = "language" id="algorithm1" value="sunda" checked>
+                {% else %}
+                    <input type="radio" class="form-check-input" name = "language" id="algorithm1" value="sunda">
+                {% endif %}
+                <label class = "form-check-label" for="algorithm2">
+                    Sunda - Indonesia
+                </label>
+            </div>
+        
+        <div class="form-group">
+            <label>
+                Kata : 
+            </label>
+            {% if kata %}
+                <input type="text" class="form-control" name = "kata" value="{{kata}}" required>
+            {% else %}
+                <input type="text" class="form-control" name = "kata" required>
+            {% endif %}
+        </div>
+        <input type="submit" value="Submit">
+
+        
     </form>
 
     {% if terjemahan %}
         <p>{{terjemahan}}</p>
-    {% else %}
+    {% endif %}
 
 {% endblock content %}
