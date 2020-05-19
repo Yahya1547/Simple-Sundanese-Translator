@@ -34,11 +34,11 @@ def removeSymbol(kata) :
     
     return kata_tanpa_simbol, simbol
 
-def translateKata(kosakata, indo, method) :
+def translateKata(kosakata, language, method) :
     # kosakata ini merupakan pattern yang akan dicari pada data kamus
     # indo bernilai true apabila kosakata dalam bahasa indonesia, dan false apabila dalam bahasa sunda
     # method merupakan pilihan algoritma untuk pencocokan string
-    if indo :
+    if language == 'indo' :
         for tuplekata in kamusIndo :
             if len(tuplekata[0]) == len(kosakata) :
                 if method == 'kmp' :
@@ -50,7 +50,7 @@ def translateKata(kosakata, indo, method) :
                 
                 if pos == 0 :
                     return (1,tuplekata[1])
-    else :
+    elif language == 'sunda' :
         for tuplekata in (kamusSunda) :
             if len(tuplekata[0]) == len(kosakata) :
                 if method == 'kmp' :
@@ -73,7 +73,7 @@ def translateKata(kosakata, indo, method) :
 
 
 
-def translate(teks, indo, method) : 
+def translate(teks, language, method) : 
     kata = teks.split(' ')
     kata_tanpa_simbol, simbol = removeSymbol(kata)
 
@@ -84,7 +84,7 @@ def translate(teks, indo, method) :
         for j in range(len(kata) - 1, i-1, -1) :
             kosakata = concat(kata_tanpa_simbol, i, j)
             kosakata_terjemahan = kosakata
-            terjemahan = translateKata(kosakata, indo, method)
+            terjemahan = translateKata(kosakata, language, method)
             if terjemahan[0] == 1 :
                 kosakata_terjemahan = terjemahan[1]
 
@@ -101,4 +101,4 @@ def translate(teks, indo, method) :
     return concat(kata_terjemahan, 0, len(kata_terjemahan)-1)
     
 
-print(translate("maneh kaditu? jauh? atawa kaos sangsang?", False, 'regex'))
+print(translate("maneh kaditu? jauh? atawa kaos sangsang?", 'sunda', 'regex'))

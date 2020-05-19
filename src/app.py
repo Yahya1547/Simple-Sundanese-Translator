@@ -15,13 +15,14 @@ def upload_file():
         # mengambil data hasil input form
         kata = request.form['kata']
         method = request.form['method']
+        language = request.form['language']
 
-        hasil_extract = []
+        terjemahan = translate(kata, language, method)
         
         # melakukan ekstraksi pada setiap file yang telah diinput
         # file harus berada pada folder "test"
         
-        return render_template('index.html')
+        return render_template('index.html', terjemahan = terjemahan)
 
 # halaman tentang website yang dibuat
 @app.route('/about')

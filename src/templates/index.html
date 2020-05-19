@@ -13,13 +13,13 @@
 
         <legend>Bahasa : </legend>
             <div class="form-check">
-                <input type="radio" class="form-check-input" name = "method" id="algorithm1" value="indo" checked>
+                <input type="radio" class="form-check-input" name = "language" id="algorithm1" value="indo" checked>
                 <label class = "form-check-label" for="algorithm1">
                     Indonesia - Sunda
                 </label>
             </div>
             <div class="form-check">
-                <input type="radio" class="form-check-input" name = "method" id="algorithm2" value="sunda">
+                <input type="radio" class="form-check-input" name = "language" id="algorithm2" value="sunda">
                 <label class = "form-check-label" for="algorithm2">
                     Sunda - Indonesia
                 </label>
@@ -56,5 +56,9 @@
             <input type="submit" value="Submit">
         </fieldset>
     </form>
+
+    {% if terjemahan %}
+        <p>{{terjemahan}}</p>
+    {% else %}
 
 {% endblock content %}
