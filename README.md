@@ -33,7 +33,7 @@ python3 flaskapp.py
 ```
 And then after it successfully compiled. You can open the web browser and then enter the site that is given after the server is ready. It is usually "http://127.0.0.1:5000/" or you can replace it with "localhost:5000". The port should be the same.
 
-## Contoh Kasus Uji
+## Sample Test Case
 ```
 Sunda - Indonesia
 Sunda : nami abdi Riyugan
